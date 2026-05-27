@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: backend
-          image: ghcr.io/hmanhng/todolist-backend:latest
+          image: ghcr.io/hmanhng/todolist-backend:2a5c308cc77abd6e380291a0f07b7cab9df418fc
           imagePullPolicy: Always
           ports:
             - name: http

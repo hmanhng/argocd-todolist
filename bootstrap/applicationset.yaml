@@ -9,13 +9,20 @@ spec:
         elements:
           - name: mysql
             path: apps/mysql
+            namespace: todolist
             syncWave: "0"
           - name: backend
             path: apps/backend
+            namespace: todolist
             syncWave: "1"
           - name: frontend
             path: apps/frontend
+            namespace: todolist
             syncWave: "2"
+          - name: nginx
+            path: apps/nginx
+            namespace: todolist-nginx
+            syncWave: "3"
   template:
     metadata:
       name: todolist-{{name}}
@@ -29,7 +36,7 @@ spec:
         path: '{{path}}'
       destination:
         server: https://kubernetes.default.svc
-        namespace: todolist
+        namespace: '{{namespace}}'
       syncPolicy:
         automated:
           prune: true
